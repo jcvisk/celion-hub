@@ -1,0 +1,451 @@
+/*========== SECCTION 1 ==========*/
+.seccion-1{
+    background: #000000;
+}
+.seccion-1 .celion-logo {
+  width: 250px;
+}
+header {
+  position: absolute;
+  z-index: 3;
+  bottom: 10%;
+  justify-content: center;
+}
+header #navGlass{
+    min-width: auto;
+    max-width: 1100px;
+    max-height: auto;
+}
+.collapse-section{
+    position:absolute;
+    z-index: 4;
+    width: 300px;
+    left: 0;
+    top: 0;
+    
+}
+/*========== SECCTION 2 ==========*/
+.seccion-2 {
+  background: url(../images/background/bg-secc2.png) no-repeat center center, #000000;
+  background-size: cover;
+}
+.seccion-2 h2{
+    font-family: 'Fontspring';
+    max-width: 900px;
+}
+
+/*========== SECCTION 4 ==========*/
+#secc4 .swiper-container {
+    position: relative;
+
+}
+
+#secc4 .cellphone-img {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    z-index: 2;
+    width: 75%;
+    filter: drop-shadow(0px 6px 10px #000000);
+    transition: all 0.3s ease;
+}
+
+#secc4 .cellphone-img:hover {
+    transform: scale(1.2) translate(-43%, -45%);
+    z-index: 4;
+    filter: drop-shadow(0px 6px 50px #000000);
+}
+
+#secc4 .tarjtea-img{
+    border-radius: 20px;
+    height: 200px !important;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+ /*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 344px) {
+    #secc4 .cellphone-img {
+        width: 80%;
+        top: 60%;
+    }
+}
+
+@media (min-width: 500px) {
+    #secc4 .cellphone-img {
+        width: 55%;
+    }
+}
+
+ /*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    #secc4 .cellphone-img {
+        width: 35%;
+    }
+}
+
+ /*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    #secc4 .cellphone-img {
+        width: 30%;
+    }
+}
+
+ /*X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    #secc4 .cellphone-img {
+        width: 25%;
+    }
+}
+@media (min-width: 1400px) {
+    #secc4 .cellphone-img {
+        width: 20%;
+
+    }
+}
+@media (min-width: 1600px) {
+  #secc4 .cellphone-img {
+    width: 15%;
+    top: 75%;
+  }
+}
+/*========== SECCTION 6 ==========*/
+#secc6{
+    position: relative;
+    background-color: white;
+    border-radius: 25px 25px 0 0;
+    margin-top: -3rem;
+    z-index: 10;
+}
+
+#secc6 .tarjtea-img{
+    border-radius: 35px;
+    width: 100%;
+}
+#secc6 .swiper-slide {
+    position: relative;
+    height: 250px;
+    color: white/* Ensure the container has a defined height */
+}
+#secc6 img{
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+
+#secc6 .tarjeta-texto1{
+    font-family: 'Aeonik'!important;
+}
+#secc6 .tarjeta-texto2{
+    font-family: "BebasNeue-Regular";
+    font-weight: bold!important;
+}
+#secc6 .tarje-texto3 {
+    font-size: 10px;
+    font-family: 'Aeonik'!important;
+    line-height: 2px
+}
+
+.texto-agrupado1{
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: .8;
+    letter-spacing: 2px;
+}
+.texto-agrupado2{
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: .8;
+    letter-spacing: 2px;
+}
+
+.texto-agrupado3{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: .8;
+    letter-spacing: 2px;
+}
+
+.texto-agrupado4{
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: .8;
+    letter-spacing: 2px;
+}
+
+.texto-agrupado5{
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: .8;
+    letter-spacing: 2px;
+}
+.texto-agrupado6{
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: .8;
+    letter-spacing: 2px;
+}
+
+
+/* #secc7 .secc{
+    background-color: #FCFCFC;
+    border-radius: 25px;
+ */
+/*========== SECCTION 7 ==========*/
+#secc7 .secc {
+  background-color: #fcfcfc;
+  border-radius: 25px;
+}
+
+#secc7 h3{
+    font-family: 'Aeonik-Bold';
+    text-transform: uppercase;
+}
+
+/*========== SECCTION 8 ==========*/
+#secc8{
+    position: relative;
+    background-color: black;
+    background-image: url(../images/background/bg-violet.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#secc8 .img-flotante{
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 25%;
+}
+
+/*========== SECCTION 9 ==========*/
+#secc9{
+    position: relative;
+    background-color: white;
+    border-radius: 25px 25px 0 0;
+    margin-top: -3rem;
+    z-index: 10;
+}
+
+#secc9 .shadows{
+    border-radius: 25px;
+}
+
+/*========== SECCTION 10 ==========*/
+#secc10 {
+    background-image: url(../images/background/bg-concierto.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*========== SECCTION 11 ==========*/
+#secc11 button{
+    font-family: 'Aeonik';
+}
+
+/*========== SECCTION 3 ==========*/
+#secc3{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-item__cc {
+    display: none;
+}
+
+.content-item__cc.active {
+    display: block;
+}
+
+#secc5{
+    border-radius: 25px 25px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#secc5 .texto{
+    position: absolute;
+    left: 5%;
+}
+
+#secc5 .pass {
+    position: absolute;
+    width: 35%;
+    max-width: 750px;
+    transform: rotate(-20deg);
+}
+
+
+
+
+/*========== ESTADO INICIAL ==========*/
+#secc5 .subtitle{
+    bottom: 30%;
+}
+
+#secc5 .title{
+    bottom: 20%;
+}
+
+#secc5 .button{
+    bottom: 10%;
+}
+
+#secc5 .pass1{
+    top: 0;
+    right: 25%;
+}
+
+#secc5 .pass2{
+    top: 0;
+    right: 0;
+}
+
+#secc5 .pass3{
+    top: 20%;
+    right: 25%;
+}
+
+#secc5 .pass4{
+    top: 20%;
+    right: 0;
+}
+
+/* Define las animaciones */
+@keyframes subtitleAnimation {
+    0% {
+        bottom: 30%;
+    }
+    100% {
+        bottom: 87%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes titleAnimation {
+    0% {
+        bottom: 20%;
+    }
+    100% {
+        bottom: 77%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes buttonAnimation {
+    0% {
+        bottom: 10%;
+    }
+    100% {
+        bottom: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes pass1Animation {
+    0% {
+        top: 0;
+        right: 25%;
+    }
+    100% {
+        top: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes pass2Animation {
+    0% {
+        top: 0;
+        right: 0;
+    }
+    100% {
+        top: 50%;
+        right: 27%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes pass3Animation {
+    0% {
+        top: 20%;
+        right: 25%;
+    }
+    100% {
+        top: 50%;
+        right: 4%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes pass4Animation {
+    0% {
+        top: 20%;
+        right: 0;
+    }
+    100% {
+        top: 50%;
+        right: -19%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Clase para activar las animaciones */
+.subtitle_animation {
+    animation: subtitleAnimation 1s ease forwards;
+}
+
+.title_animation {
+    animation: titleAnimation 1s ease forwards;
+}
+
+.button_animation {
+    animation: buttonAnimation 1s ease forwards;
+}
+
+.pass1_animation {
+    animation: pass1Animation 2s ease forwards;
+}
+
+.pass2_animation {
+    animation: pass2Animation 2s ease forwards;
+}
+
+.pass3_animation {
+    animation: pass3Animation 2s ease forwards;
+}
+
+.pass4_animation {
+    animation: pass4Animation 2s ease forwards;
+}

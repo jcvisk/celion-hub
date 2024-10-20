@@ -1,0 +1,53 @@
+.container-circular-carousel {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.container-circular-carousel .img-central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.item.active {
+    /*transform: scale(3);*/
+}
+
+svg {
+    height: 300px;
+    overflow: visible;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.st0 {
+    fill: none;
+    stroke: transparent;
+    stroke-width: 2;
+    stroke-miterlimit: 1;
+}
+
+.start {
+    position: absolute;
+    top: 50%;
+    right: -30px;
+}
