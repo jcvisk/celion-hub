@@ -72,13 +72,23 @@ items.forEach(function (el, i) {
         } else {
             var amt = numItems - Math.abs(diff);
 
-            if (current > i) {
-                moveWheel(amt * -itemStep);
-            } else {
-                moveWheel(amt * itemStep);
-            }
-        }
-    });
+      if (current > i) {
+        moveWheel(amt * -itemStep);
+      } else {
+        moveWheel(amt * itemStep);
+      }
+    }
+  });
+  el.addEventListener("mouseenter", function () {
+    document
+      .querySelector(".content-item__cc.active")
+      .classList.remove("active");
+    contentItems[i].classList.add("active");
+    stopRotation();
+  });
+  el.addEventListener("mouseleave", function () {
+    startRotation();
+  });
 });
 
 /*document.getElementById('next').addEventListener("click", function () {
@@ -109,9 +119,11 @@ function moveWheel(amount, i, index) {
         }
     });
 }
-
-(() => {
-    setInterval(() => {
-        moveWheel(itemStep)
-    }, 2000);
-})();
+function startRotation() {
+  rotationInterval = setInterval(() => {
+    moveWheel(itemStep);
+  }, 2000);
+}
+function stopRotation() {
+  clearInterval(rotationInterval);
+}

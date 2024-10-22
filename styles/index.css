@@ -53,9 +53,11 @@ header #navGlass{
 }
 
 #secc4 .cellphone-img:hover {
-    transform: scale(1.2) translate(-43%, -45%);
-    z-index: 4;
+    transform: scale(1.2) translate(-47%, -45%);
+    z-index: 6;
     filter: drop-shadow(0px 6px 50px #000000);
+    top: 25%;
+    /* top: 100%; */
 }
 
 #secc4 .tarjtea-img{
@@ -289,6 +291,10 @@ header #navGlass{
     border-radius: 25px 25px 0 0;
     position: relative;
     overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #secc5 .texto{
@@ -296,15 +302,21 @@ header #navGlass{
     left: 5%;
 }
 
+
 #secc5 .pass {
     position: absolute;
-    width: 35%;
+    width: 25vw;
     max-width: 750px;
     transform: rotate(-20deg);
 }
 
 
-
+#secc5 .swiper-initialized .pass {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: rotate(0deg) !important;
+}
 
 /*========== ESTADO INICIAL ==========*/
 #secc5 .subtitle{
@@ -321,22 +333,22 @@ header #navGlass{
 
 #secc5 .pass1{
     top: 0;
-    right: 25%;
+    left: 50%;
 }
 
 #secc5 .pass2{
     top: 0;
-    right: 0;
+    left: 65%;
 }
 
 #secc5 .pass3{
     top: 20%;
-    right: 25%;
+    left: 50%;
 }
 
 #secc5 .pass4{
     top: 20%;
-    right: 0;
+    left: 65%;
 }
 
 /* Define las animaciones */
@@ -376,48 +388,48 @@ header #navGlass{
 @keyframes pass1Animation {
     0% {
         top: 0;
-        right: 25%;
+        left: 50%;
     }
     100% {
         top: 50%;
-        right: 50%;
-        transform: translate(-50%, -50%);
+        left: 0;
+        transform: translate(0%, -50%);
     }
 }
 
 @keyframes pass2Animation {
     0% {
         top: 0;
-        right: 0;
+        left: 65%;
     }
     100% {
         top: 50%;
-        right: 27%;
-        transform: translate(-50%, -50%);
+        left: 25vw;
+        transform: translate(0%, -50%);
     }
 }
 
 @keyframes pass3Animation {
     0% {
         top: 20%;
-        right: 25%;
+        left: 50%;
     }
     100% {
         top: 50%;
-        right: 4%;
-        transform: translate(-50%, -50%);
+        left: 50vw;
+        transform: translate(0%, -50%);
     }
 }
 
 @keyframes pass4Animation {
     0% {
         top: 20%;
-        right: 0;
+        left: 65%;
     }
     100% {
         top: 50%;
-        right: -19%;
-        transform: translate(-50%, -50%);
+        left: 75vw;
+        transform: translate(0%, -50%);
     }
 }
 
@@ -448,4 +460,12 @@ header #navGlass{
 
 .pass4_animation {
     animation: pass4Animation 2s ease forwards;
+}
+
+.swiper-pass{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50px);
+    width: 100%;
 }

@@ -1,3 +1,4 @@
+@import url(./general.css);
 .container-circular-carousel {
     position: relative;
     max-width: 500px;
@@ -10,7 +11,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    /* width: 100%; */
+    width: 90%;
 }
 
 .wrapper {
@@ -23,7 +25,17 @@
     text-align: center;
     z-index: 1;
     cursor: pointer;
+    position: relative;
 }
+.item img{
+    width: 150px;
+    /* width: 100%; */
+    transition: all 0.15s ease-in-out;
+}
+.item img:hover{
+    transform: scale(1.6);
+}
+
 
 .item.active {
     /*transform: scale(3);*/
@@ -50,4 +62,12 @@ svg {
     position: absolute;
     top: 50%;
     right: -30px;
+}
+
+.content-item__cc{
+    min-height: 199px;
+}
+
+.borde1{
+    outline: 1px black solid;
 }

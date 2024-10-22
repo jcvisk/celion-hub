@@ -33,6 +33,10 @@
     .seccion-1 {
         background-position: 55% 0;
     }
+    /* responsive carrousel */
+    .wrapper .item img{
+        width: 100px;
+    }
 }
 
 
@@ -75,107 +79,4 @@
 /*XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
 
-}
-
-@media (min-width: 2150px) {
-    @keyframes pass1Animation {
-        0% {
-            top: 0;
-            right: 25%;
-        }
-        100% {
-            top: 50%;
-            right: 55%;
-            transform: translate(-50%, -50%);
-        }
-    }
-
-    @keyframes pass2Animation {
-        0% {
-            top: 0;
-            right: 0;
-        }
-        100% {
-            top: 50%;
-            right: 32%;
-            transform: translate(-50%, -50%);
-        }
-    }
-
-    @keyframes pass3Animation {
-        0% {
-            top: 20%;
-            right: 25%;
-        }
-        100% {
-            top: 50%;
-            right: 9%;
-            transform: translate(-50%, -50%);
-        }
-    }
-
-    @keyframes pass4Animation {
-        0% {
-            top: 20%;
-            right: 0;
-        }
-        100% {
-            top: 50%;
-            right: -14%;
-            transform: translate(-50%, -50%);
-        }
-    }
-    .video-rounded{
-        width: 80%;
-    }
-}
-
-@media (min-width: 3000px) {
-    @keyframes pass1Animation {
-        0% {
-            top: 0;
-            right: 25%;
-        }
-        100% {
-            top: 50%;
-            right: 60%;
-            transform: translate(-50%, -50%);
-        }
-    }
-
-    @keyframes pass2Animation {
-        0% {
-            top: 0;
-            right: 0;
-        }
-        100% {
-            top: 50%;
-            right: 37%;
-            transform: translate(-50%, -50%);
-        }
-    }
-
-    @keyframes pass3Animation {
-        0% {
-            top: 20%;
-            right: 25%;
-        }
-        100% {
-            top: 50%;
-            right: 14%;
-            transform: translate(-50%, -50%);
-        }
-    }
-
-    @keyframes pass4Animation {
-        0% {
-            top: 20%;
-            right: 0;
-        }
-        100% {
-            top: 50%;
-            right: -9%;
-            transform: translate(-50%, -50%);
-        }
-    }
 }
