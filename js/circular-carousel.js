@@ -1,5 +1,5 @@
 gsap.registerPlugin(MotionPathPlugin);
-
+var rotationInterval;
 const circlePath = MotionPathPlugin.convertToPath("#holder", false)[0];
 circlePath.id = "circlePath";
 circlePath.setAttribute("r", "100000"); // Aumenta el radio del círculo
@@ -51,45 +51,61 @@ tl.to(tracker, {
         }
     }
 }, 0);
-
+let elementActive;
 items.forEach(function (el, i) {
-    el.addEventListener("click", function () {
-        var current = tracker.item,
-            activeItem = i;
+    el.addEventListener("mouseenter", function () {
+        let elementsActive = document
+            .querySelectorAll(".content-item__cc");
+        elementsActive.forEach((element, key) => {
+            if(element.classList.contains("active")) {
+                elementActive = key;
+                element.classList.remove("active");
+                items[key].classList.remove("active");
+            }
+        });
 
-        if (i === current) {
-            return;
-        }
-
-        //set active item to the item that was clicked and remove active class from all items
-        document.querySelector('.item.active').classList.remove('active');
-        items[activeItem].classList.add('active');
-
-        var diff = current - i;
-
-        if (Math.abs(diff) < numItems / 2) {
-            moveWheel(diff * itemStep);
-        } else {
-            var amt = numItems - Math.abs(diff);
-
-      if (current > i) {
-        moveWheel(amt * -itemStep);
-      } else {
-        moveWheel(amt * itemStep);
-      }
-    }
-  });
-  el.addEventListener("mouseenter", function () {
-    document
-      .querySelector(".content-item__cc.active")
-      .classList.remove("active");
-    contentItems[i].classList.add("active");
-    stopRotation();
-  });
-  el.addEventListener("mouseleave", function () {
-    startRotation();
-  });
+        contentItems[i].classList.add("active");
+        stopRotation();
+    });
+    el.addEventListener("mouseleave", function () {
+        startRotation();
+        document.querySelectorAll('.item').forEach((element) =>{
+            element.classList.remove('active');
+        });
+        document.querySelectorAll('.content-item__cc').forEach((element) =>{
+            element.classList.remove('active');
+        });
+        items[elementActive].classList.add("active");
+        contentItems[elementActive].classList.add("active");
+    });
 });
+
+// Selecciona el elemento con la animación de WOW.js
+const enterSuperhub = document.querySelector('#enterSuperhub');
+document.querySelectorAll(".content-item__cc").forEach((item, index) => {
+    item.classList.add("d-none");
+});
+rotationInterval = setInterval(() => {
+    moveWheel(itemStep);
+}, 20);
+// Añade un listener para el evento 'animationend'
+enterSuperhub.addEventListener('animationend', () => {
+    // Código a ejecutar cuando la animación termine
+    console.log('Animación de WOW.js terminada');
+    // Aquí puedes llamar a cualquier función o ejecutar cualquier código
+
+    setTimeout(() => {
+        clearInterval(rotationInterval);
+        startRotation();
+        document.querySelectorAll(".content-item__cc").forEach((item, index) => {
+            item.classList.remove("d-none");
+        });
+    }, 1000);
+});
+
+
+
+
 
 /*document.getElementById('next').addEventListener("click", function () {
 return moveWheel(-itemStep);
@@ -103,7 +119,8 @@ return moveWheel(itemStep);
 function moveWheel(amount, i, index) {
     let progress = tl.progress();
     tl.progress(wrapProgress(snap(tl.progress() + amount)))
-    let next = tracker.item;
+    let next = (tracker.item+3);
+    next = next >= 7 ? next % 7 : next;
     tl.progress(progress);
 
     document.querySelector('.item.active').classList.remove('active');

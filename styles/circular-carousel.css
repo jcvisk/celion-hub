@@ -37,7 +37,8 @@
 }
 
 
-.item.active {
+.item.active img {
+    transform: scale(1.6);
     /*transform: scale(3);*/
 }
 

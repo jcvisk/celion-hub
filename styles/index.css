@@ -42,22 +42,22 @@ header #navGlass{
 
 #secc4 .cellphone-img {
     position: absolute;
-    top: 70%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center;
     z-index: 2;
     width: 75%;
     filter: drop-shadow(0px 6px 10px #000000);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 #secc4 .cellphone-img:hover {
-    transform: scale(1.2) translate(-47%, -45%);
+    transform: scale(1.2) translate(-42%, -45%);
     z-index: 6;
-    filter: drop-shadow(0px 6px 50px #000000);
-    top: 25%;
-    /* top: 100%; */
+    filter: drop-shadow(6px 10px 10px #000000);
+    top: 65%;
+
 }
 
 #secc4 .tarjtea-img{
@@ -73,13 +73,21 @@ header #navGlass{
 
  /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 344px) {
-    #secc4 .cellphone-img {
-        width: 80%;
+    #secc4 .cellphone-img:hover {
         top: 60%;
+
+    }
+    #secc4 .cellphone-img {
+        width: 65%;
+        top: 65%;
     }
 }
 
 @media (min-width: 500px) {
+    #secc4 .cellphone-img:hover {
+        top: 50%;
+
+    }
     #secc4 .cellphone-img {
         width: 55%;
     }
@@ -87,35 +95,59 @@ header #navGlass{
 
  /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
+    #secc4 .cellphone-img:hover {
+        top: 50%;
+
+    }
     #secc4 .cellphone-img {
         width: 35%;
+        top: 65%;
     }
 }
 
  /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+    #secc4 .cellphone-img:hover {
+        top: 60%;
+        width: 27%;
+
+    }
     #secc4 .cellphone-img {
-        width: 30%;
+        width: 25%;
+        top: 65%;
     }
 }
 
  /*X-Large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
+    #secc4 .cellphone-img:hover {
+        top: 59%;
+        width: 23%;
+    }
     #secc4 .cellphone-img {
         width: 25%;
     }
 }
 @media (min-width: 1400px) {
+    #secc4 .cellphone-img:hover {
+        top: 57%;
+        width: 22%;
+    }
     #secc4 .cellphone-img {
         width: 20%;
-
+        top: 65%;
     }
 }
 @media (min-width: 1600px) {
-  #secc4 .cellphone-img {
-    width: 15%;
-    top: 75%;
-  }
+    #secc4 .cellphone-img:hover {
+        top: 59%;
+        width: 20%;
+    }
+
+    #secc4 .cellphone-img {
+        width: 20%;
+        top: 65%;
+    }
 }
 /*========== SECCTION 6 ==========*/
 #secc6{
