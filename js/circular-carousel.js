@@ -1,146 +1,160 @@
-gsap.registerPlugin(MotionPathPlugin);
-var rotationInterval;
-const circlePath = MotionPathPlugin.convertToPath("#holder", false)[0];
-circlePath.id = "circlePath";
-circlePath.setAttribute("r", "100000"); // Aumenta el radio del círculo
-document.querySelector("svg").prepend(circlePath);
+class CircularCarousel {
+    constructor() {
+        this.rotationInterval = null;
+        this.circlePath = MotionPathPlugin.convertToPath("#holder", false)[0];
+        this.circlePath.id = "circlePath";
+        this.circlePath.setAttribute("r", "100000"); // Increase the circle radius
+        document.querySelector("svg").prepend(this.circlePath);
 
-const contentItems = document.querySelectorAll('.content-item__cc');
+        this.contentItems = document.querySelectorAll('.content-item__cc');
+        this.enterSuperhub = document.querySelector('#enterSuperhub');
 
-let items = gsap.utils.toArray(".item"),
-    numItems = items.length,
-    itemStep = 1 / numItems,
-    wrapProgress = gsap.utils.wrap(0, 1),
-    snap = gsap.utils.snap(itemStep),
-    wrapTracker = gsap.utils.wrap(0, numItems),
-    tracker = {item: 0};
+        this.items = gsap.utils.toArray(".item");
+        this.numItems = this.items.length;
+        this.itemStep = 1 / this.numItems;
+        this.wrapProgress = gsap.utils.wrap(0, 1);
+        this.snap = gsap.utils.snap(this.itemStep);
+        this.wrapTracker = gsap.utils.wrap(0, this.numItems);
+        this.tracker = { item: 0 };
+        this.tl = gsap.timeline({ paused: true, reversed: true });
+        this.elementActive = undefined;
 
-gsap.set(items, {
-    motionPath: {
-        path: circlePath,
-        align: circlePath,
-        alignOrigin: [0.5, 0.5],
-        end: i => i / items.length
-    }, scale: 0.9,
-    //transformOrigin: '50% 50%' // Asegura que el origen de la transformación esté centrado
-});
-
-const tl = gsap.timeline({paused: true, reversed: true});
-
-tl.to('.wrapper', {
-    rotation: 360,
-    transformOrigin: 'center',
-    duration: 1,
-    ease: 'none'
-});
-
-tl.to(items, {
-    rotation: "-=360",
-    transformOrigin: 'center',
-    duration: 1,
-    ease: 'none',
-}, 0);
-
-tl.to(tracker, {
-    item: numItems,
-    duration: 1,
-    ease: 'none',
-    modifiers: {
-        item(value) {
-            return wrapTracker(numItems - Math.round(value))
-        }
+        this.startRotationObject();
+        this.fastRotation();
     }
-}, 0);
-let elementActive;
-items.forEach(function (el, i) {
-    el.addEventListener("mouseenter", function () {
-        let elementsActive = document
-            .querySelectorAll(".content-item__cc");
-        elementsActive.forEach((element, key) => {
-            if(element.classList.contains("active")) {
-                elementActive = key;
-                element.classList.remove("active");
-                items[key].classList.remove("active");
+
+    moveWheel(amount) {
+        let progress = this.getProgress(amount);
+        let next = this.getNextIndex(this.tracker);
+        this.tl.progress(progress);
+        this.removeAndAddActiveElements(next);
+        gsap.to(this.tl, {
+            progress: this.snap(this.tl.progress() + amount),
+            modifiers: {
+                progress: this.wrapProgress
             }
         });
+    }
 
-        contentItems[i].classList.add("active");
-        stopRotation();
-    });
-    el.addEventListener("mouseleave", function () {
-        startRotation();
-        document.querySelectorAll('.item').forEach((element) =>{
+    removeAndAddActiveElements(next) {
+        document.querySelector('.item.active').classList.remove('active');
+        this.items[next].classList.add('active');
+
+        document.querySelector('.content-item__cc.active').classList.remove('active');
+        this.contentItems[next].classList.add('active');
+    }
+
+    getNextIndex(tracker) {
+        let next = (tracker.item + 3);
+        return next >= 6 ? next % 6 : next;
+    }
+
+    getProgress(amount) {
+        let progress = this.tl.progress();
+        this.tl.progress(this.wrapProgress(this.snap(this.tl.progress() + amount)));
+        return progress;
+    }
+
+    fastRotation() {
+        document.querySelectorAll(".content-item__cc").forEach((item) => {
+            item.classList.add("d-none");
+        });
+        this.rotationInterval = setInterval(() => {
+            this.moveWheel(this.itemStep);
+        }, 20);
+    }
+
+    startRotation() {
+        this.rotationInterval = setInterval(() => {
+            this.moveWheel(this.itemStep);
+        }, 2000);
+    }
+
+    stopRotation() {
+        clearInterval(this.rotationInterval);
+    }
+
+    startRotationObject() {
+        this.inicializeRotation();
+        this.inicializeEvents();
+    }
+
+    inicializeRotation() {
+        gsap.set(this.items, {
+            motionPath: {
+                path: this.circlePath,
+                align: this.circlePath,
+                alignOrigin: [0.5, 0.5],
+                end: i => i / this.items.length
+            }, scale: 0.9,
+        });
+
+        this.tl.to('.wrapper', {
+            rotation: 360,
+            transformOrigin: 'center',
+            duration: 1,
+            ease: 'none'
+        });
+
+        this.tl.to(this.items, {
+            rotation: "-=360",
+            transformOrigin: 'center',
+            duration: 1,
+            ease: 'none',
+        }, 0);
+
+        this.tl.to(this.tracker, {
+            item: this.numItems,
+            duration: 1,
+            ease: 'none',
+            modifiers: {
+                item: (value) => this.wrapTracker(this.numItems - Math.round(value))
+            }
+        }, 0);
+    }
+
+    inicializeEvents() {
+        this.items.forEach((el, i) => {
+            el.addEventListener("mouseenter", () => this.handleMouseEnter(el, i));
+            el.addEventListener("mouseleave", this.handleMouseLeave.bind(this));
+        });
+        this.enterSuperhub.addEventListener('animationend', this.handleAnimationEnd.bind(this));
+    }
+
+    handleAnimationEnd() {
+        setTimeout(() => {
+            clearInterval(this.rotationInterval);
+            this.startRotation();
+            document.querySelectorAll(".content-item__cc").forEach((item) => {
+                item.classList.remove("d-none");
+            });
+        }, 1000);
+    }
+
+    handleMouseEnter(el, i) {
+        let elementsActive = document.querySelectorAll(".content-item__cc");
+        elementsActive.forEach((element, key) => {
+            if (element.classList.contains("active")) {
+                this.elementActive = key;
+                element.classList.remove("active");
+                this.items[key].classList.remove("active");
+            }
+        });
+        this.contentItems[i].classList.add("active");
+        this.stopRotation();
+    }
+
+    handleMouseLeave() {
+        this.startRotation();
+        document.querySelectorAll('.item.active, .content-item__cc.active').forEach((element) => {
             element.classList.remove('active');
         });
-        document.querySelectorAll('.content-item__cc').forEach((element) =>{
-            element.classList.remove('active');
-        });
-        items[elementActive].classList.add("active");
-        contentItems[elementActive].classList.add("active");
-    });
-});
-
-// Selecciona el elemento con la animación de WOW.js
-const enterSuperhub = document.querySelector('#enterSuperhub');
-document.querySelectorAll(".content-item__cc").forEach((item, index) => {
-    item.classList.add("d-none");
-});
-rotationInterval = setInterval(() => {
-    moveWheel(itemStep);
-}, 20);
-// Añade un listener para el evento 'animationend'
-enterSuperhub.addEventListener('animationend', () => {
-    // Código a ejecutar cuando la animación termine
-    console.log('Animación de WOW.js terminada');
-    // Aquí puedes llamar a cualquier función o ejecutar cualquier código
-
-    setTimeout(() => {
-        clearInterval(rotationInterval);
-        startRotation();
-        document.querySelectorAll(".content-item__cc").forEach((item, index) => {
-            item.classList.remove("d-none");
-        });
-    }, 1000);
-});
-
-
-
-
-
-/*document.getElementById('next').addEventListener("click", function () {
-return moveWheel(-itemStep);
-});
-
-document.getElementById('prev').addEventListener("click", function () {
-return moveWheel(itemStep);
-});*/
-
-
-function moveWheel(amount, i, index) {
-    let progress = tl.progress();
-    tl.progress(wrapProgress(snap(tl.progress() + amount)))
-    let next = (tracker.item+3);
-    next = next >= 7 ? next % 7 : next;
-    tl.progress(progress);
-
-    document.querySelector('.item.active').classList.remove('active');
-    items[next].classList.add('active');
-
-    document.querySelector('.content-item__cc.active').classList.remove('active');
-    contentItems[next].classList.add('active');
-
-    gsap.to(tl, {
-        progress: snap(tl.progress() + amount),
-        modifiers: {
-            progress: wrapProgress
+        if (this.elementActive !== undefined) {
+            this.items[this.elementActive].classList.add("active");
+            this.contentItems[this.elementActive].classList.add("active");
         }
-    });
+    }
 }
-function startRotation() {
-  rotationInterval = setInterval(() => {
-    moveWheel(itemStep);
-  }, 2000);
-}
-function stopRotation() {
-  clearInterval(rotationInterval);
-}
+
+// Initialize the carousel
+new CircularCarousel();

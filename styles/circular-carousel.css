@@ -29,7 +29,6 @@
 }
 .item img{
     width: 150px;
-    /* width: 100%; */
     transition: all 0.15s ease-in-out;
 }
 .item img:hover{

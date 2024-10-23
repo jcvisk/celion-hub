@@ -1,0 +1,104 @@
+@import url(./general.css);
+header {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  max-height: 50px;
+  margin-top: 1rem;
+}
+.celion-logo{
+    position: absolute;
+    right: 0;
+}
+.seccion-2 {
+  background: url(../images/background/bg-secc2.png) no-repeat center center,
+    #000000;
+  background-size: cover;
+}
+.seccion-2 h2 {
+  font-family: "Fontspring";
+  max-width: 900px;
+}
+.event-card {
+    width: 90%;
+    min-height: 500px;
+    outline: 1px white solid;
+    border-radius: 22px;
+    margin-bottom: 100px;
+    background: linear-gradient(
+    112.22deg,
+    rgba(255, 255, 255, 0.3886) 2.38%,
+    rgba(255, 158, 117, 0.1474) 52.37%,
+    rgba(255, 255, 255, 0.4489) 97.59%
+  );;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  .efect-card{
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+  }
+  .efect-card:hover,
+.event-card:hover {
+  transform: scale(1.1);
+}
+.event-card-interior {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .enlace-producto1 {
+    position: absolute;
+    top: 10px;
+  }
+  .principal-event-card.event-card {
+    min-height: 600px;
+    margin-bottom: 50px;
+  }
+  /* pantalla movil  */
+@media (max-width: 576px) {
+    .enlace-producto1 {
+        right: 5%;
+      }
+}
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  header {
+    justify-content: start;
+  }
+  .enlace-producto1 {
+    right: 5%;
+  }
+}
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .enlace-producto1 {
+        right: 5%;
+      }
+}
+/*XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+  header {
+    justify-content: center;
+  }
+  .glass-btn {
+    display: none;
+  }
+  .enlace-producto1 {
+    right: 5%;
+  }
+}
+/*Mac*/
+@media (min-width: 2500px) {
+    header {
+      justify-content: center;
+    }
+    .glass-btn {
+      display: none;
+    }
+    .enlace-producto1 {
+      right: 15%;
+    }
+  }

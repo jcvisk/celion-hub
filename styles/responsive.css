@@ -63,6 +63,9 @@
         height: 500px !important;
         width: 500px !important;
     }
+    .glass-btn{
+        display: block;
+    }
 
 }
 
@@ -78,5 +81,7 @@
 
 /*XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
-
+    .glass-btn{
+        display: none;
+    }
 }

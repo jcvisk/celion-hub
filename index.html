@@ -29,13 +29,13 @@
     <!-- styles -->
     <link rel="stylesheet" href="./styles/general.css"/>
     <!-- Index -->
-    <link rel="stylesheet" href="./styles/index.css?1.4"/>
+    <link rel="stylesheet" href="./styles/index.css?1.5"/>
     <!-- Responsive -->
     <link rel="stylesheet" href="./styles/responsive.css"/>
     <!-- Swiper -->
     <link rel="stylesheet" href="./assets/plugins/swipper/swiper-bundle.min.css"/>
     <!-- Circular Carousel -->
-    <link rel="stylesheet" href="./styles/circular-carousel.css"/>
+    <link rel="stylesheet" href="./styles/circular-carousel.css?1.0"/>
     <!-- Animate -->
     <link rel="stylesheet" href="./assets/plugins/animate/animate.min.css">
 </head>
@@ -50,23 +50,23 @@
                             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Super Hub</a>
+                            <a class="nav-link" href="#secc3">Super Hub</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Obtén tu Pass</a>
+                            <a class="nav-link" href="#secc5">Obtén tu Pass</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Aprendizaje</a>
+                            <a class="nav-link" href="#secc6">Aprendizaje</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Origen</a>
+                            <a class="nav-link" href="#secc8" >Origen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Eventos</a>
+                            <a class="nav-link"  href="/eventos.html">Eventos</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link">The Brand</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -75,13 +75,13 @@
     <div class="row w-100 justify-content-center p-3 position-absolute z-1">
         <img class="celion-logo" src="./images/logos/celion-hub-logo.svg" alt=""/>
     </div>
-    <video id="video" class="video-rounded position-relative">
-        <source src="./assets/video/celionColor.mp4"/>
+    <video id="video" class="video-rounded position-relative" autoplay loop>
+        <source src="./assets/video/CelionAnimlow.mp4"/>
         Tu navegador no soporta el elemento de video.
     </video>
-    <div class="play-button" id="playButton">
+    <!-- <div class="play-button" id="playButton">
         <img class="img-fluid" src="./images/icons/playb.png" alt=""/>
-    </div>
+    </div> -->
     <!-- boton responsivo -->
     <div class="collapse-section">
         <button class="bg-glass glass-btn mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#glassCollapse"
@@ -96,23 +96,23 @@
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#">Super Hub</a>
+                        <a class="nav-link" href="#secc3">Super Hub</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#">Obtén tu Pass</a>
+                        <a class="nav-link" href="#secc5">Obtén tu Pass</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link">Aprendizaje</a>
+                        <a class="nav-link" href="#secc6" >Aprendizaje</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link">Origen</a>
+                        <a class="nav-link" href="#secc8">Origen</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link">Eventos</a>
+                        <a class="nav-link" href="./eventos.html">Eventos</a>
                     </li>
-                    <li class="nav-item mb-2">
+                    <!-- <li class="nav-item mb-2">
                         <a class="nav-link">The Brand</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -149,9 +149,9 @@
                     <div class="item d-flex justify-content-center align-items-center">
                         <img src="./images/secc3/go-travel.png" alt="icon" class="">
                     </div>
-                    <div class="item d-flex justify-content-center align-items-center">
+                    <!-- <div class="item d-flex justify-content-center align-items-center">
                         <img src="./images/secc3/pay-chain.png" alt="icon" class="">
-                    </div>
+                    </div> -->
                     <div class="item d-flex justify-content-center align-items-center">
                         <img src="./images/secc3/sniper-signals.png" alt="icon" class="">
                     </div>
@@ -198,11 +198,11 @@
                         <p class="fs-5">Servicio de viajes exclusivo, ofreciendo experiencias de viaje y paquetes
                             personalizados.</p>
                     </div>
-                    <div class="content-item__cc">
+                    <!-- <div class="content-item__cc">
                         <h5 class="h4"><span class="span-color font-title-bold">PayChain</span></h5>
                         <p class="fs-5">Pasarela de pago que permite realizar transacciones en criptomonedas de forma
                             rápida y segura.</p>
-                    </div>
+                    </div> -->
                     <div class="content-item__cc">
                         <h5 class="h4"><span class="span-color font-title-bold">Sniper Signals</span></h5>
                         <p class="fs-5">Servicio de señales cripto, stocks, índices y forex, brindando análisis y
@@ -747,7 +747,7 @@
 <script src="./assets/plugins/swipper/swiper-bundle.min.js"></script>
 <script src="./assets/plugins/gsap/gsap.min.js"></script>
 <script src="./assets/plugins/gsap/MotionPathPlugin.min.js"></script>
-<script src="./js/circular-carousel.js?1.2"></script>
+<script src="./js/circular-carousel.js?2.0"></script>
 <script>
 
     let animationsCompleted = 0;
